@@ -1,0 +1,70 @@
+body {
+    background-image: url("images/c2.mp4");
+    /* background-size: cover;
+    background-repeat: no-repeat; */
+}
+
+.nfimg {
+height: 200px;
+width: 300px;
+border-radius: 20px;
+}
+.hidden {
+    display: none;
+}
+/* .reveal{
+    display: ;
+} */
+.show-location {
+font-weight: bolder;
+}
+.fa-location-crosshairs{
+    font-size: 2.4em;
+}
+.fa-magnifying-glass{
+    border-radius: 46%;
+    font-size: 1.5em;
+    
+}
+.fa-magnifying-glass:hover {
+    background-color: rgb(206, 206, 212);
+    color: black;
+    border-radius: 46%;
+    font-size: 1.5em;
+}
+#bg-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+
+.box{
+    font-size: 27px;
+}
+.box:hover{
+    background-color: rgb(231, 231, 237);
+    color: black;
+    font-size: 27px;
+}
+.temperature-value {
+font-weight: bolder;
+font-size: 2em;
+}
+.humidity-value {
+font-weight: bolder;
+font-size: 2em;
+}
+.description-value {
+font-weight: bolder;
+font-size: 2em;
+}
+.windspeed {
+font-weight: bolder;
+font-size: 1sem;
+}
+.fa-temperature-low {
+    font-size: 4em;
+}
