@@ -31,7 +31,7 @@ searchBtn.addEventListener("click", () => {
       nfimg.classList.add("hidden");
       locationP.style.display = "none";
       
-
+      console.log(city.value);
       console.log(json);
 
       switch (json.weather[0].main) {
@@ -63,7 +63,6 @@ searchBtn.addEventListener("click", () => {
       description.innerHTML = `${json.weather[0].description}`;
       humidity.innerHTML = `${json.main.humidity}%`;
       windspeed.innerHTML = `${json.wind.speed} KM/h`;
-      clouds;
     })
     .catch((error) => {
       console.log(error); // log any errors to the console
