@@ -2,7 +2,7 @@ const container1 = document.querySelector(".container1");
 const container2 = document.querySelector(".container2");
 const searchBtn = document.querySelector(".search-box button"); // select the search button element
 const nfimg = document.querySelector(".nfimg");
-const locationP = document.querySelector(".show-location");
+// const locationP = document.querySelector(".show-location");
 
 searchBtn.addEventListener("click", () => {
   // add a click event listener to the search button
@@ -29,30 +29,30 @@ searchBtn.addEventListener("click", () => {
       const windspeed = document.querySelector(".windspeed-value");
       const errorwindow = document.querySelector(".show-location");
       nfimg.classList.add("hidden");
-      locationP.style.display = "none";
+      // locationP.style.display = "none";
       
       console.log(city.value);
       console.log(json);
 
-      switch (json.weather[0].main) {
-        case "Clear":
-          image.src = "images/clear.png";
-          break;
-        case "Rain":
-          image.src = "images/rain.png";
-          break;
-        case "Snow":
-          image.src = "images/snow.png";
-          break;
-        // case "Clouds":
-        //   image.src = "images/clouds.png";
-        //   break;
-        case "Haze":
-          image.src = "images/haze.png";
-          break;
-        // default:
-        //   image.src = "";
-      }
+      // switch (json.weather[0].main) {
+      //   case "Clear":
+      //     image.src = "images/clear.png";
+      //     break;
+      //   case "Rain":
+      //     image.src = "images/rain.png";
+      //     break;
+      //   case "Snow":
+      //     image.src = "images/snow.png";
+      //     break;
+      //   // case "Clouds":
+      //   //   image.src = "images/clouds.png";
+      //   //   break;
+      //   case "Haze":
+      //     image.src = "images/haze.png";
+      //     break;
+      //   // default:
+      //   //   image.src = "";
+      // }
 
       console.log(temperature.innerHTML);
       num = `${parseInt(json.main.temp)}`;
