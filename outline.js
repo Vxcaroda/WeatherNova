@@ -2,7 +2,9 @@ const container1 = document.querySelector(".container1");
 const container2 = document.querySelector(".container2");
 const searchBtn = document.querySelector(".search-box button"); // select the search button element
 const nfimg = document.querySelector(".nfimg");
-// const locationP = document.querySelector(".show-location");
+const cityNF = document.querySelector(".city-not-found-blurb");
+let errorFlag = false;
+// const locationP = document.querySelector(".city-not-found-blurb");
 
 searchBtn.addEventListener("click", () => {
   // add a click event listener to the search button
@@ -19,20 +21,33 @@ searchBtn.addEventListener("click", () => {
   )
     .then((response) => response.json())
     .then((json) => {
+      if (errorFlag) {
+        // hide error message if it was shown before
+        const errorWindow = document.querySelector(".city-not-found-blurb");
+        if (errorWindow !== null) {
+          errorWindow.classList.add("hidden");
+        }
+        errorFlag = false;
+      }
       // update the weather information on the web page
       const image = document.querySelector(".weather-box img");
       const temperature = document.querySelector(
         ".weather-box .temperature-value"
-      ); //set a variable temperature to the span (horizontal structure) named: temperature-value
+      ); 
+      //set a variable temperature to the span (horizontal structure) named: temperature-value
       const description = document.querySelector(".description-value");
       const humidity = document.querySelector(".humidity-value");
       const windspeed = document.querySelector(".windspeed-value");
-      const errorwindow = document.querySelector(".show-location");
-      nfimg.classList.add("hidden");
-      // locationP.style.display = "none";
-      
+      // const errorwindow = document.querySelector(".city-not-found-blurb");
+      // nfimg.classList.add("hidden");
+
       console.log(city.value);
       console.log(json);
+
+      if(json.message == "city not found"){
+        cityNF.innerHTML = `Sorry! City not found. Try again.`;
+        errorFlag = true;
+      } 
 
       // switch (json.weather[0].main) {
       //   case "Clear":
@@ -66,5 +81,8 @@ searchBtn.addEventListener("click", () => {
     })
     .catch((error) => {
       console.log(error); // log any errors to the console
+      const errorWindow = document.querySelector(".city-not-found-blurb");
+      errorWindow.classList.remove("hidden");
+      errorFlag = true;
     });
 });
