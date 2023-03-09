@@ -7,10 +7,10 @@ body {
     font-size: 2em;
     font-weight: bolder;
 }
-.nfimg {
-height: 200px;
-width: 400px;
-border-radius: 20px;
+.WeatherNovaImg {
+height: 100px;
+width: 200px;
+border-radius: 7px;
 }
 .hidden {
     display: none;
