@@ -12,7 +12,10 @@ const travelimg = document.querySelector(".weather-icon");
 const cityNF = document.querySelector(".city-not-found-blurb");
 const nfimg = document.querySelector(".nfimg");
 const date = document.querySelector(".date-value");
+const cityID = document.querySelector(".city-value");
 let errorFlag = false;
+let clickedLat = 0.0;
+let clickedLng = 0.0;
 let cityName = "";
 
 //Functions
@@ -29,6 +32,23 @@ function setMapToCoordinates(lat, lng) {
     position: { lat, lng },
     map: map,
   });
+  map.addListener("click", (event) => {
+    // get the latitude and longitude coordinates of the click
+    const latLng = event.latLng;
+    const lat = latLng.lat();
+    const lng = latLng.lng();
+    clickedLat = lat;
+    clickedLng = lng;
+
+    // create an info window to display the coordinates
+    const infowindow = new google.maps.InfoWindow({
+      content: `Latitude: ${lat}<br>Longitude: ${lng}`,
+    });
+
+    // open the info window at the click location
+    infowindow.setPosition(latLng);
+    infowindow.open(map);
+  });
 }
 //function (2) sets maps default landing coordinates upon startup (initializing map)
 function initMap() {
@@ -44,8 +64,27 @@ function initMap() {
     map: map,
     title: "Marker 1!",
   });
+  map.addListener("click", (event) => {
+    // get the latitude and longitude coordinates of the click
+    const latLng = event.latLng;
+    const lat = latLng.lat();
+    const lng = latLng.lng();
+    clickedLat = lat;
+    clickedLng = lng;
+
+    // create an info window to display the coordinates
+    const infowindow = new google.maps.InfoWindow({
+      content: `Latitude: ${lat}<br>Longitude: ${lng}`,
+    });
+
+    // open the info window at the click location
+    infowindow.setPosition(latLng);
+    infowindow.open(map);
+  });
 }
+
 google.maps.event.addDomListener(window, "load", initMap); //waits for web page to fully load, then calls initMap to initialize the Google Map.
+
 searchBtn.addEventListener("click", () => {
   //After User Clicks Search: Continue below
   const APIKey = "5c3412626cefebb5a1e1f2156cb1c7ba"; //weather api key
@@ -74,6 +113,10 @@ searchBtn.addEventListener("click", () => {
         //set a variable temperature to the span (horizontal structure) named: temperature-value
         ".weather-box .temperature-value"
       );
+      cityID.innerHTML = `${city.value
+        .slice(0, 1)
+        .toUpperCase()}${city.value.slice(1)}`; // Force uppercase on the first letter of the City Name being displayed on main page
+        
       const description = document.querySelector(".description-value");
       const humidity = document.querySelector(".humidity-value");
       const windspeed = document.querySelector(".windspeed-value");
@@ -89,7 +132,8 @@ searchBtn.addEventListener("click", () => {
       const openWeatherMapImageUrl = `https://openweathermap.org/img/w/${json.weather[0].icon}.png`;
       const cityPhotoElement = document.querySelector(".weather-icon");
       cityPhotoElement.src = openWeatherMapImageUrl;
-
+      console.log(clickedLat);
+      console.log(clickedLng);
       console.log("json incoming:...");
       console.log(json);
 
