@@ -9,11 +9,15 @@
 
   <body>
     <div class="container1">
-      <div class="search-box">
+      <div class="search-box">        
         <p class="fa-solid fa-location-crosshairs"></p>
         <input class="box" type="text" placeholder="Search Location" />
         <button class="fa-solid fa-magnifying-glass"></button>
       </div>
+      <div class="date-container">
+        <span class="date-value"></span>
+      </div>
+      
       <div class="city-not-found-blurb"></div>
 
       <div class="weather-box">
@@ -23,12 +27,8 @@
           <img class="weather-icon" alt="Info Unkown" />
         </div>
       </div>
-      
-      
       <!-- Add the Google Maps API script -->
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHmXR9tdoHGxwFWrSiDoxe7cPYcKWLJNw"></script>
-
-
     </div>
     <div class="map-container">
       <div id="map"></div>

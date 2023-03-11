@@ -6,6 +6,14 @@ const travelimg = document.querySelector(".weather-icon");
 const cityNF = document.querySelector(".city-not-found-blurb");
 let errorFlag = false;
 
+const date = document.querySelector(".date-value");
+const today = new Date();
+const dateString = today.toLocaleDateString();
+console.log(dateString);
+date.innerHTML = `${dateString}`;
+//set todays date on Web Page
+
+
 function setMapToCoordinates(lat, lng) {
   const mapElement = document.getElementById("map");
   console.log("setmaptocoords Function");
@@ -16,10 +24,10 @@ function setMapToCoordinates(lat, lng) {
 }
 
 function initMap() {
-  var myLatLng = { lat: 40.748817, lng: -73.985428 };
+  var myLatLng = { lat: 37.952861, lng: -17.413337 };
   console.log(myLatLng);
   var map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 12,
+    zoom: 3,
     center: myLatLng,
   });
 
@@ -27,7 +35,7 @@ function initMap() {
   var marker = new google.maps.Marker({
     position: myLatLng,
     map: map,
-    title: "Hello World!",
+    title: "Marker 1!",
   });
 }
 google.maps.event.addDomListener(window, "load", initMap);
@@ -67,7 +75,6 @@ searchBtn.addEventListener("click", () => {
       // const errorwindow = document.querySelector(".city-not-found-blurb");
       // nfimg.classList.add("hidden");
       const cityCoordinates = `lat=${json.coord.lat}&lon=${json.coord.lon}`;
-      console.log(45);
       console.log(cityCoordinates);
       const openWeatherMapImageUrl = `https://openweathermap.org/img/w/${json.weather[0].icon}.png`;
       console.log(openWeatherMapImageUrl);

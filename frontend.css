@@ -20,9 +20,15 @@ margin-right: 20px;
 .map-container{
     float: right;
     flex-grow: 1;
-    height: 600px;
-    width: 800px;
+    height: 750px;
+    width: 1000px;
     margin-left: 20px;
+}
+.date-value{
+    font-size: 2em;
+    font-weight: bolder;
+    border: 2px;
+    border-style: solid;
 }
 .hidden {
     display: none;
