@@ -73,6 +73,7 @@ width: 100px;
 
 .box{
     font-size: 27px;
+    width: 350px;
 }
 .box:hover{
     background-color: rgb(231, 231, 237);
